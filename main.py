@@ -22,7 +22,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 async def translate_text(text: str) -> str:
     """Uses Google Gemini API to translate text."""
     response = client.models.generate_content(
-        model="gemini-2.5-pro-exp-03-25",
+        model="gemini-2.0-flash",
         config=types.GenerateContentConfig(
             system_instruction="You’re great at translating between Traditional Chinese and indonesian in a way that feels natural and easy to read, keeping the meaning, tone, and vibe just right for everyday conversation. Respond translated text only"
         ),
