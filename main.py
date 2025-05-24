@@ -3,7 +3,7 @@ from google import genai
 from google.genai import types
 from telegram import Update
 from telegram.ext import Application, MessageHandler, filters, CallbackContext
-
+from openAI import call_openAI
 
 # Load .env only in development
 if os.getenv("ENV") != "production":
@@ -35,7 +35,7 @@ async def handle_message(update: Update, context: CallbackContext) -> None:
     """Processes incoming messages and translates them."""
     user_text = update.message.text
     print(user_text)
-    translated_text = await translate_text(user_text)
+    translated_text = call_openAI(user_text)
     await update.message.reply_text(translated_text)
 
 
